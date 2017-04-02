@@ -8,16 +8,18 @@
         private $_marca;
         private $_fecha;
 
-        function __construct ($marca,$color,$precio=0,$fecha=0){ // = opcionales
+        function __construct ($marca,$color,$precio=0,$fecha=0){ // = opcionales 
 
          $this->_marca = $marca;
          $this->_color = $color;
+         $this->_precio= $precio;
+         $this->_fecha= $fecha;
 
         }
 
         public function AgregarImpuestos($monto){
-           echo "se agrego".$monto;
            $this->_precio += $monto;
+           echo "se agrego".$monto;
         }
 
         public static function MostrarAuto ($objAuto){
