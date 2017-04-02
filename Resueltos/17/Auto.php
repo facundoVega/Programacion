@@ -22,8 +22,12 @@
            echo "se agrego".$monto;
         }
 
+         public function getData() {
+            return "Marca: ".$this->_marca." Color: ".$this->_color." Precio: ".$this->_precio." Fecha ".$this->_fecha."<br>";
+         }
+
         public static function MostrarAuto ($objAuto){
-            
+            //$objAuto->getData();
             echo $objAuto->_marca."<br>";
             echo $objAuto->_color."<br>";
             echo $objAuto->_precio."<br>";
