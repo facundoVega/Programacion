@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="guardar.php" method="POST">
+<!--Se ingresara el nombre de la persona y el archivo, guardando el dato en el archivo al pulsar el button guardar
+se verificara si el archivo existe
+de ya existir el archivo se copiara y se movera a la carpeta bk ,cambiandole el nombre x el nombre + la fecha
+al pulsar el button leer si el archivo existe, se mostrara el contenido .
+ de no existir el archivo se informara que no existe-->
+        Nombre: <input type="text" name ="nombre" placeholder="aca va su nombre">
+        <br>
+         Nombre: <input type="text" name ="archivo" placeholder="archivo">
+        
+        <input type="submit" value ="Escribir" name="guardar">
+
+        <input type="submit" value = "Leer" name="leer">
+
+    </form>
+</body>
+</html>
