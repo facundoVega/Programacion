@@ -17,38 +17,49 @@
 
         }
 
+        public function getMarca(){
+            return $this->_marca;
+        }
+        public function getColor(){
+            return $this->_color;
+        }
+        public function getPrecio(){
+            return $this->_precio;
+        }
+        public function getFecha(){
+            return $this->_fecha;
+        }
+
         public function AgregarImpuestos($monto){
            $this->_precio += $monto;
-           echo "se agrego".$monto;
+           echo "se agrego ".$monto;
         }
-
-         public function getData() {
-            return "Marca: ".$this->_marca." Color: ".$this->_color." Precio: ".$this->_precio." Fecha ".$this->_fecha."<br>";
-         }
+                     
 
         public static function MostrarAuto ($objAuto){
-            //$objAuto->getData();
-            echo $objAuto->_marca."<br>";
-            echo $objAuto->_color."<br>";
-            echo $objAuto->_precio."<br>";
-            echo $objAuto->_fecha."<br>";
+           
+           echo $objAuto->getColor();
+           echo "<br>";
+           echo $objAuto->getMarca();
+           echo "<br>";
+           echo $objAuto->getPrecio();
+           echo "<br>";
+           echo $objAuto->getFecha();
              
         }
-
-        public function Equals ($objAuto1,$objAuto2){
-            
-            if($objAuto1->_marca == $objAuto2->_marca){
-                return true;
-            }
-
-            return false;
-        }
+        
+       public function Equals($objAuto){
+           if($this->getMarca() == $objAuto->getMarca()){
+               return true;
+           }
+         return false;
+       }
 
         public static function Add ($objAuto1,$objAuto2){
       
-             if($objAuto1->_marca == $objAuto2->_marca && $objAuto1->_color == $objAuto2->_color){
+             if($objAuto1->getMarca() == $objAuto2->getMarca() && $objAuto1->getColor() == $objAuto2->getColor()){
 
-                 return $objAuto1->_precio + $objAuto2->_precio;
+                 return $objAuto1->getPrecio() + $objAuto2->getPrecio();
 
              }
              else{
