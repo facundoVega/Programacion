@@ -6,7 +6,11 @@ $miArray[1]='O';
 $miArray[2]='L';
 $miArray[3]='A';
 
+var_dump($miArray);
+
 $nuevoArray = InvertirPalabra($miArray);
+
+echo "<br>";
 
 var_dump($nuevoArray);
 
