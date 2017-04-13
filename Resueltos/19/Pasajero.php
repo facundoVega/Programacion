@@ -20,6 +20,10 @@ public function getDni(){
     return $this->_dni;
 }
 
+public function getEsPlus(){
+    return $this->_esPlus;
+}
+
 public function Equals ($objPasajero){
     if($this->_dni == $objPasajero->getDni()){
         return true;
