@@ -35,5 +35,26 @@ echo "<br>";
 echo "getInfo vuelo 1<br>";
 echo $vuelo_1->getInfo();
 echo "<br>";
+echo "----------------------------------";
+echo "<br>";
+echo "Mostrar vuelo";
+echo "<br>";
+echo $vuelo_1->MostrarVuelo();
+echo "<br>";
+$vuelo_2->AgregarPasajero($pasajero_1);
+$vuelo_2->AgregarPasajero($pasajero_3);
+echo "Add<br>";
+echo Vuelo::Add($vuelo_1,$vuelo_2);
+echo "<br>";
+echo "///////////////////////////////////////////////////";
+var_dump($vuelo_2);
+echo "<br>";
+echo "<br>";
+Vuelo::Remove($vuelo_2,$pasajero_1);
+echo "<br>";
+echo "<br>";
+var_dump($vuelo_2);
+
+
 
 ?>
