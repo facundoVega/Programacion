@@ -24,22 +24,37 @@ public function getEsPlus(){
     return $this->_esPlus;
 }
 
+public function getNombre(){
+    return  $this->_nombre;
+}
+
+public function getApellido(){
+    return  $this->_apellido;
+}
 public function Equals ($objPasajero){
     if($this->_dni == $objPasajero->getDni()){
+        echo "son iguales";
         return true;
+        
     }
+    echo"no son iguales";
  return false;
 }
 
 public function getInfoPasajero(){
-   return "Apellido: ".$this->_apellido." Nombre: ".$this->_nombre." dni: ".$this->_dni." es plus: ".$this->_esPlus;
+    if($this->_esPlus){
+        $esPlus="si";
+    }else{
+        $esPlus="no";
+    }
+   return "Apellido: ".$this->_apellido." Nombre: ".$this->_nombre." dni: ".$this->_dni." es plus: ".$esPlus;
 }
 
-public static function MostrarPasajero(){
-    echo $this->_apellido."<br>";
-    echo $this->_nombre."<br>";
-    echo $this->_dni."<br>";
-    echo $this->_esPlus."<br>";
+public static function MostrarPasajero($objPasajero){
+    echo "Apellido: ".$objPasajero->getApellido()."<br>";
+    echo "Nombre: ".$objPasajero->getNombre()."<br>";
+    echo "Dni: ".$objPasajero->getDni()."<br>";
+    echo "Es Plus: ".$objPasajero->getEsPlus()."<br>";
 }
 
 }

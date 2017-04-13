@@ -15,7 +15,7 @@ public function __construct ($empresa,$precio,$cantidadMaxima=null){
         $this->_fecha = date('d/m/Y');
         $this->_empresa = $empresa;
         $this->_precio = $precio;
-        $this->_cantidadMaxima = $_cantidadMaxima;
+        $this->_cantidadMaxima = $cantidadMaxima;
         $this->_listaDePasajeros = array();
        
 }
@@ -35,33 +35,45 @@ public function getPrecio(){
 public function getInfo(){
    $cadena = '';
    $cadena.="Fecha: ".$this->_fecha." ";
-   $cadena.="Empresa: ".$this->$_empresa." ";
-   $cadena.="Precio: ".$this->$_precio." ";
-   $cadena.="Cantidad Maxima: ".$this->$_cantidadMaxima." ";
+   $cadena.="Empresa: ".$this->_empresa." ";
+   $cadena.="Precio: ".$this->_precio." ";
+   $cadena.="Cantidad Maxima: ".$this->_cantidadMaxima." ";
 
    for($i=0; $i<count($this->_listaDePasajeros); $i++){
-       $cadena.="Info pasajero ".$i.": ".$this->_listaDePasajeros[$i]->getInfoPasajero();
+       $cadena.="Info pasajero ".($i+1).": ".$this->_listaDePasajeros[$i]->getInfoPasajero();
        $cadena.="///";
    }
    return $cadena;
 }
 
 public function AgregarPasajero($objPasajero){
+ 
+    if(count($this->_listaDePasajeros)<1 && $this->_cantidadMaxima >=1 ){
+        array_push($this->_listaDePasajeros,$objPasajero);
+        echo "Se agrego pasajero";
+        return true;
 
-    for($i=0; $i<count($this->_listaDePasajeros); $i++){
-
-            if($this->_listaDePasajeros[$i].Equals($objPasajero)){
-                continue;
-            }else{
-                if(count($this->_listaDePasajeros) < $this->_cantidadMaxima){
-                        array_push($this->_listaDePasajeros,$objPasajero);
-                        return true;
-                }
-                
-            }
+    }
+  
+    for($i=0;$i<count($this->_listaDePasajeros);$i++){
+         
+        if($this->_listaDePasajeros[$i]->Equals($objPasajero)){
+            echo " ya existe no se agrega el pasajero al vuelo <br>";
+            return false;
+        }
     
-    }    
-    return false;
+    }
+
+    
+    if(count($this->_listaDePasajeros) < $this->_cantidadMaxima){
+
+           array_push($this->_listaDePasajeros,$objPasajero);
+           echo "Se agrego pasajero";
+     }else{
+         echo "<br>";
+         echo "no se permite agregar mas pasajeros cantidad maxima ";
+     }
+                            
 }
 
 public function MostrarVuelo(){
