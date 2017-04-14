@@ -19,6 +19,9 @@ public function __construct ($empresa,$precio,$cantidadMaxima=null){
         $this->_listaDePasajeros = array();
        
 }
+public function getEmpresa(){
+    return $this->_empresa;
+}
 
 public function getCantidadMaxima(){
     return $this->_cantidadMaxima;
@@ -26,6 +29,9 @@ public function getCantidadMaxima(){
 
 public function getListaDePasajeros(){
     return $this->_listaDePasajeros;
+}
+public function setListaDePasajeros($listaDePasajeros){
+    $this->_listaDePasajeros = $listaDePasajeros;
 }
 
 public function getPrecio(){
@@ -83,7 +89,7 @@ public function MostrarVuelo(){
    echo "Precio: ".$this->_precio."<br>";
    echo "Cantidad Maxima: ".$this->_cantidadMaxima."<br>";
 
-   for($i=0; $i<count($this->_listaDePasajeros); $i++){
+   for($i=0; $i<count($this->_listaDePasajeros); $i++){ //foreach
        echo "Info pasajero ".$i.": ".$this->_listaDePasajeros[$i]->getInfoPasajero()."<br>";
        echo "--------------<br>";
    }
@@ -136,7 +142,12 @@ public static function Remove ($objVuelo,$objPasajero){
 
            if($listaDePasajeros[$i]->Equals($objPasajero)){
               //unset($objVuelo->getListaDePasajeros()[$i]);
+              unset($listaDePasajeros[$i]);
               echo "Se elimino pasajero";
+              $objNew = new Vuelo ($objVuelo->getEmpresa(),$objVuelo->getPrecio(),$objVuelo->getCantidadMaxima());
+              
+              $objNew->setListaDePasajeros($listaDePasajeros);
+              return $objNew;
            }
      }
   return $objVuelo;

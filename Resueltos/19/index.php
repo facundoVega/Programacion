@@ -47,13 +47,15 @@ echo "Add<br>";
 echo Vuelo::Add($vuelo_1,$vuelo_2);
 echo "<br>";
 echo "///////////////////////////////////////////////////";
+echo count($vuelo_2->getListaDePasajeros());
 var_dump($vuelo_2);
 echo "<br>";
 echo "<br>";
-Vuelo::Remove($vuelo_2,$pasajero_1);
+$objetoNuevo = Vuelo::Remove($vuelo_2,$pasajero_1);
 echo "<br>";
 echo "<br>";
-var_dump($vuelo_2);
+echo count($objetoNuevo->getListaDePasajeros());
+var_dump($objetoNuevo);
 
 
 
