@@ -1,0 +1,14 @@
+INSERT INTO `localidad`(`descr`, `codpos`) VALUES ('Quilmes','1416');
+INSERT INTO `localidad`(`descr`, `codpos`) VALUES ('Avellaneda','1417');
+INSERT INTO `localidad`(`descr`, `codpos`) VALUES ('Lomas','1418');
+
+INSERT INTO `usuario`(`nombre`, `apellido`, `legajo`, `idloc`) VALUES ('matias','rodriguez',1,1);
+INSERT INTO `usuario`(`nombre`, `apellido`, `legajo`, `idloc`) VALUES ('matias','rodriguez',2,2);
+INSERT INTO `usuario`(`nombre`, `apellido`, `legajo`, `idloc`) VALUES ('matias','rodriguez',3,3);
+INSERT INTO `usuario`(`nombre`, `apellido`, `legajo`, `idloc`) VALUES ('matias','rodriguez',4,1);
+
+
+SELECT u.nombre,l.descr 
+FROM usuario as u, localidad as l
+WHERE u.idloc = l.id
+AND u.legajo > 1
