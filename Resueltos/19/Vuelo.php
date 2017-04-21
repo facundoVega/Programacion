@@ -10,7 +10,7 @@ private $_precio;
 private $_listaDePasajeros;
 private $_cantidadMaxima;
 
-public function __construct ($empresa,$precio,$cantidadMaxima=null){
+public function __construct ($empresa,$precio,$cantidadMaxima){
 
         $this->_fecha = date('d/m/Y');
         $this->_empresa = $empresa;
@@ -75,9 +75,11 @@ public function AgregarPasajero($objPasajero){
 
            array_push($this->_listaDePasajeros,$objPasajero);
            echo "Se agrego pasajero";
+           return true;
      }else{
          echo "<br>";
          echo "no se permite agregar mas pasajeros cantidad maxima ";
+         return false;
      }
                             
 }
