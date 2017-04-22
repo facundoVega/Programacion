@@ -24,6 +24,7 @@ public function SetAumentarSalario($porcentaje){
     $this->_salario += $aumento;
 
 }
+
 public function GetNombreApellido(){
     return $this->_nombre.','.$this->_apellido;
 }
@@ -35,7 +36,7 @@ public static function Mostrar($objOperario){
 }
 public function Equals($objOperario){
 
-    if(strcmp($this->GetNombreApellido(),$objOperario->GetNombreApellido()) == 0 && $this->_legajo == $objOperario->_legajo){ // verifica tambien mayusculas/minusculas
+    if(strcmp($this->Mostrar(),$objOperario->Mostrar()) == 0){ // verifica tambien mayusculas/minusculas
         return true;
     }
  return false;
