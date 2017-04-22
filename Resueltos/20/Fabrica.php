@@ -1,4 +1,6 @@
 <?php
+Class Fabrica{
+
 
 include_once "Operario.php";
 
@@ -67,4 +69,24 @@ public function Add($objOperario){
  return false;
 }
 
+public function Remove ($objOperario){
+
+    if(Fabrica::Equals($this,$objOperario)){
+
+        for($i = 0;$i<count($this->_opeararios;$i++){
+
+            if($this->_opeararios[$i]->Equals($objOperario)){
+                unset($this->_opeararios[$i]);
+                echo "Se elimino operario de la fabrica";
+                return true;
+            }
+        }
+
+    }
+ echo "No se pudo eliminar operario de la fabrica";
+ return false;
+}
+
+
+}
 ?>

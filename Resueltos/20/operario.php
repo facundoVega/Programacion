@@ -1,4 +1,6 @@
 <?php
+Class Opearario{
+
 
 private $_apellido;
 private $_legajo;
@@ -39,4 +41,6 @@ public function Equals($objOperario){
  return false;
 }
 
+
+}
 ?>
