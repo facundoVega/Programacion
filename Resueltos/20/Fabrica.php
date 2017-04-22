@@ -1,8 +1,7 @@
 <?php
-Class Fabrica{
-
-
 include_once "Operario.php";
+
+Class Fabrica{
 
 private $_cantMaxOperarios;
 private $_operarios;

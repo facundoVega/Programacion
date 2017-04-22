@@ -1,6 +1,6 @@
 <?php
-Class Opearario{
 
+Class Opearario{
 
 private $_apellido;
 private $_legajo;
