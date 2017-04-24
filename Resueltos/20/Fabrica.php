@@ -10,7 +10,7 @@ private $_razonSocial;
 public function __construct($razonSocial,$cantMaxOperarios=5){ //opcional
 
     $this->_razonSocial = $razonSocial;
-    $this->cantMaxOperarios=$cantMaxOperarios;
+    $this->_cantMaxOperarios=$cantMaxOperarios;
     $this->_operarios = array();
 }
 
@@ -29,14 +29,15 @@ private function retornarCostos(){
  return $dinero;
 }
 
-private function MostrarOperarios(){
+private function MostrarOperarios(){ // private ??
 
-   foreach($this->operarios as $item){
-
-       $item->Mostrar();
+   foreach($this->_operarios as $item){
+ 
+       echo $item->Mostrar();
        echo "<br>";
 
    }
+  
 }
 
 public static function  MostrarCostos($objFabrica){
@@ -47,9 +48,9 @@ public static function  MostrarCostos($objFabrica){
 
 public static function Equals($objFabrica,$objOperario){
 
-     for($i = 0 ; $i<count(objFabrica.getOperarios()) ; $i++){
+     for($i = 0 ; $i<count($objFabrica->getOperarios()) ; $i++){
 
-         if(objFabrica.getOperarios()[$i].Equals($objOperario)){ //revisar
+         if($objFabrica->getOperarios()[$i]->Equals($objOperario)){ //ok
             return true;
          }
      }
@@ -58,13 +59,13 @@ public static function Equals($objFabrica,$objOperario){
 
 public function Add($objOperario){
 
-    if(Fabrica::Equals($this,$objOperario) == false && count($this->_operarios)<$this->_cantMaxOperarios) {
+    if( Fabrica::Equals($this,$objOperario) == false && count($this->_operarios) < $this->_cantMaxOperarios) { 
         array_push($this->_operarios,$objOperario);
-        echo "Se agrego operario a la fabrica";
+        echo "Se agrego operario a la fabrica<br>";
         return true;
     }
 
- echo "No se pudo agregar operario a la fabrica";
+ echo "No se pudo agregar operario a la fabrica<br>";
  return false;
 }
 
@@ -74,8 +75,8 @@ public function Remove ($objOperario){
 
         for($i = 0;$i<count($this->_operarios);$i++){
 
-            if($this->_opeararios[$i]->Equals($objOperario)){
-                unset($this->_opeararios[$i]);
+            if($this->_operarios[$i]->Equals($objOperario)){
+                unset($this->_operarios[$i]);
                 echo "Se elimino operario de la fabrica";
                 return true;
             }
