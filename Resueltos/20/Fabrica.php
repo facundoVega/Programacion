@@ -72,7 +72,7 @@ public function Remove ($objOperario){
 
     if(Fabrica::Equals($this,$objOperario)){
 
-        for($i = 0;$i<count($this->_opeararios;$i++){
+        for($i = 0;$i<count($this->_operarios);$i++){
 
             if($this->_opeararios[$i]->Equals($objOperario)){
                 unset($this->_opeararios[$i]);
