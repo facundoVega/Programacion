@@ -7,7 +7,7 @@ protected $_legajo;
 protected $_sueldo;
 
     public function __construct($nombre,$apellido,$dni,$sexo,$legajo,$sueldo){
-        echo "consutrctor empleado<br>";
+        echo "constructor empleado<br>";
         parent::__construct($apellido,$dni,$nombre,$sexo);
         $this->_legajo = $legajo;
         $this->_sueldo = $sueldo;

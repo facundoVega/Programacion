@@ -8,7 +8,7 @@ private $_nombre;
 private $_sexo;
 
 public function __construct($apellido,$dni,$nombre,$sexo){ // es necesario el constructor con los parametros en clase abstracta?
-    echo "consutrctor persona<br>";
+    echo "constructor persona<br>";
     $this->_apellido = $apellido;
     $this->_dni = $dni;
     $this->_nombre = $nombre;

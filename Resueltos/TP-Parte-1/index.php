@@ -1,6 +1,7 @@
 <?php
 include_once "Persona.php";
 include_once "Empleado.php";
+include_once "Fabrica.php";
 
 $objEmpleado_1 = new Empleado("Matias","Lopez",37765891,"M",54654,1000.00);
 
