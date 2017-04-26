@@ -33,7 +33,7 @@ public function Dibujar(){
 
 
 
-public function __toString(){
+public function __toString(){ // magic function
   $txt = parent::__toString();
   $txt .= " LADO 1: ".$this->_ladoUno." LADO 2: ".$this->_ladoDos;
   return $txt;

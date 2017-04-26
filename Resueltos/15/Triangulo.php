@@ -33,7 +33,7 @@ public function Dibujar(){
  return $contenido;
 }
 
-public function __toString(){
+public function __toString(){ // magic function
   $txt = parent::__toString();
   $txt .= " BASE: ".$this->_base." ALTURA: ".$this->_altura;
   return $txt;
