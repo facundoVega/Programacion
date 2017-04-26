@@ -18,7 +18,7 @@ protected function calcularDatos(){
 }
 
 public function Dibujar(){
- if(is_null($this->_color)){
+ if(empty($this->_color)){
    $this->_color = 'red';
    echo "<br>sin color, rojo por default<br>";
 }
