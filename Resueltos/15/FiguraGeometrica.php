@@ -17,8 +17,8 @@ abstract class FiguraGeometrica
     abstract public function Dibujar();
     abstract protected function CalcularDatos();
 
-   public function toString(){
-       
+   public function __toString(){ //magical method
+       return "COLOR: ".$this->_color." PERIMETRO: ".$this->_perimetro." SUPERFICIE: ".$this->_superficie;
    }
 
 }

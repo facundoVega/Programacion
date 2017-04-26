@@ -18,10 +18,27 @@ protected function calcularDatos(){
 }
 
 public function Dibujar(){
-//utilizar this color de fig geo
+ if(empty($this->_color)){
+   $this->_color = 'red';
+   echo "<br>sin color, rojo por default<br>";
+}
+ $contenido  = "<font color='".$this->_color."'>";
+ $contenido .= "<p>";
+ $contenido .= "  *<br>";
+ $contenido .= " ***<br>";
+ $contenido .= "*****<br>";
+ $contenido .= "</p>";
+ $contenido .= "</font>";
+ //echo htmlspecialchars($contenido);
+ return $contenido;
 }
 
+public function __toString(){
+  $txt = parent::__toString();
+  $txt .= " BASE: ".$this->_base." ALTURA: ".$this->_altura;
+  return $txt;
 
+}
 
 }
 
