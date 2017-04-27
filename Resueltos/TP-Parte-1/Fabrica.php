@@ -18,8 +18,9 @@ public function AgregarEmpleado(Empleado $objEmpleado){
    
     $start = count($this->_empleados); // num de elementos en el array antes de modificar 
     $finish = array_push($this->_empleados,$objEmpleado);// retorna num de elementos en el array despues de modificar 
-    $this->EliminarRepetidos(); // verificar que este bien aca 
+    $this->EliminarRepetidos(); 
     if($finish > $start){
+        echo "Se agrego un empleado<br>";
         return true;
     }
 
@@ -29,28 +30,45 @@ public function AgregarEmpleado(Empleado $objEmpleado){
 public function CalcularSueldos(){
 
     $total = 0;
-
+/* rompe por unset de esta forma utilizar foreach 
     for($i=0;$i<count($this->_empleados);$i++){
        $total +=  $this->_empleados[$i]->getSueldo();
     }
-
+*/
+    foreach($this->_empleados as $empleado){
+        $total += $empleado->getSueldo();
+    }
 return $total;
 
 }
-public function EliminarEmpleado(Empleado $objEmpleado){ // tengo que buscarlo comparando objetos o directamente le paso el indice por parametro ?
+public function EliminarEmpleado(Empleado $objEmpleado){ // como compara objetos == anda bien pero averiguar
+        for($i=0;$i<count($this->_empleados);$i++){
+            if($this->_empleados[$i] == $objEmpleado){
+                unset($this->_empleados[$i]);
+                echo "Se elimino empleado<br>";
+                return true;
+            }
+
+        }
+echo "No se elimino empleado<br>";
+return false;
 
 }
 
 private function EliminarRepetidos(){
-    $this->_empleados = array_unique($this->_empleados); //funciona con objs?
+
+    $this->_empleados = array_unique($this->_empleados); //funciona con objs? // ver 2 parametro link marcador chrome SORT_REGULAR
+    echo "Se limpiaron Repetidos.<br>";
 }
 
-public function __toString(){ // no tiene que ser metodo magico 
+public function __toString(){ 
 
-$txt = 'Razon Social: '.$razonSocial.' - ';
+$txt = 'Razon Social: '.$this->_razonSocial.' - ';
+
     foreach($this->_empleados as $empleado){
-        $txt.=  $empleado->__toString();// voy a tener que crear el ToString() no magico a menos que encuentre una manera de invocarlo manualmente el metodo magico 
+        $txt.=  $empleado->__toString().'<br>'; // se puede llamar manualmente el metodo magico tambien 
     }
+    
 
 return $txt;
 }
