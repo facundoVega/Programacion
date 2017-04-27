@@ -37,6 +37,7 @@ $objFabrica->AgregarEmpleado($objEmpleadoTest_1);
 $objFabrica->AgregarEmpleado($objEmpleadoTest_2);
 echo"<b>lolo y lala :</b>".$objFabrica->__toString(); // con echo $obj lo llama = al tostring magico
 $objFabrica->AgregarEmpleado($objEmpleadoTest_1);
+echo $objFabrica;
 $objEmpleadoTest_3= new Empleado("lili","Lopez",37765891,"M",54654,1000.00);
 $objFabrica->AgregarEmpleado($objEmpleadoTest_3);
 echo"<b>lolo , lala, lili </b>".$objFabrica->__toString();

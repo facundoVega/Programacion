@@ -19,7 +19,7 @@ public function AgregarEmpleado(Empleado $objEmpleado){
     $start = count($this->_empleados); // num de elementos en el array antes de modificar 
     $finish = array_push($this->_empleados,$objEmpleado);// retorna num de elementos en el array despues de modificar 
     $this->EliminarRepetidos(); 
-    if($finish > $start){
+    if($finish > $start){ // creo que es innecesario fijarse de sacarlo 
         echo "Se agrego un empleado<br>";
         return true;
     }
@@ -30,7 +30,7 @@ public function AgregarEmpleado(Empleado $objEmpleado){
 public function CalcularSueldos(){
 
     $total = 0;
-/* rompe por unset de esta forma utilizar foreach 
+/* rompe por unset de esta forma utilizar foreach aunque con array_values se arreglo problema poner de cualquier manera
     for($i=0;$i<count($this->_empleados);$i++){
        $total +=  $this->_empleados[$i]->getSueldo();
     }
@@ -41,10 +41,11 @@ public function CalcularSueldos(){
 return $total;
 
 }
-public function EliminarEmpleado(Empleado $objEmpleado){ // como compara objetos == anda bien pero averiguar
+public function EliminarEmpleado(Empleado $objEmpleado){ // se podria utilizar $key=array_search($objEmpleado,$this->_empleados);
         for($i=0;$i<count($this->_empleados);$i++){
             if($this->_empleados[$i] == $objEmpleado){
                 unset($this->_empleados[$i]);
+                $this->_empleados = array_values($this->_empleados); // siempre que elimino reorganizar indices del array
                 echo "Se elimino empleado<br>";
                 return true;
             }
@@ -57,7 +58,7 @@ return false;
 
 private function EliminarRepetidos(){
 
-    $this->_empleados = array_unique($this->_empleados); //funciona con objs? // ver 2 parametro link marcador chrome SORT_REGULAR
+    $this->_empleados = array_values(array_unique($this->_empleados,SORT_REGULAR)); 
     echo "Se limpiaron Repetidos.<br>";
 }
 
@@ -69,7 +70,6 @@ $txt = 'Razon Social: '.$this->_razonSocial.' - ';
         $txt.=  $empleado->__toString().'<br>'; // se puede llamar manualmente el metodo magico tambien 
     }
     
-
 return $txt;
 }
 
