@@ -55,7 +55,18 @@ echo "No se elimino empleado<br>";
 return false;
 
 }
-
+/*
+function EliminarEmpleado(Empleado $persona)
+	{
+		$index = array_search($persona, $this->_empleados);
+		 if(false !== $index)	
+		 {
+			unset($this->_empleados[$index]);
+			$arrayReindexado = array_values($this->_empleados);
+			$this->_empleados = $arrayReindexado;
+		 }	
+	}
+*/
 private function EliminarRepetidos(){
 
     $this->_empleados = array_values(array_unique($this->_empleados,SORT_REGULAR)); //andaba sin el sort_regular x el tostring magico sino no anda ponerlo.
