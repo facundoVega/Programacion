@@ -11,15 +11,15 @@ public function __construct($razonSocial){
 }
 /*
  se puede poner el tipo en el parametro o instance of para asegurarse de que sea de ese tipo
-  solo con clases o array o self .(int ,string,bool,float no. php 7). 
+ solo con clases o array o self .(int ,string,bool,float no. php 7). 
   si no pide verificar tipo recibido por parametro no ponerlo
 */
 public function AgregarEmpleado(Empleado $objEmpleado){ 
    
-    $start = count($this->_empleados); // num de elementos en el array antes de modificar 
-    $finish = array_push($this->_empleados,$objEmpleado);// retorna num de elementos en el array despues de modificar 
+    $startNumber = count($this->_empleados); // num de elementos en el array antes de modificar 
+    $finishNumber = array_push($this->_empleados,$objEmpleado);// retorna num de elementos en el array despues de modificar 
     $this->EliminarRepetidos(); 
-    if($finish > $start){ // creo que es innecesario fijarse de sacarlo 
+    if($finishNumber > $startNumber){ // creo que es innecesario fijarse de sacarlo 
         echo "Se agrego un empleado<br>";
         return true;
     }
@@ -30,7 +30,7 @@ public function AgregarEmpleado(Empleado $objEmpleado){
 public function CalcularSueldos(){
 
     $total = 0;
-/* rompe por unset de esta forma utilizar foreach aunque con array_values se arreglo problema poner de cualquier manera
+/* rompe por unset de esta forma utilizar foreach aunque con array_values se arreglo
     for($i=0;$i<count($this->_empleados);$i++){
        $total +=  $this->_empleados[$i]->getSueldo();
     }
@@ -58,9 +58,10 @@ return false;
 
 private function EliminarRepetidos(){
 
-    $this->_empleados = array_values(array_unique($this->_empleados,SORT_REGULAR)); 
-    echo "Se limpiaron Repetidos.<br>";
+    $this->_empleados = array_values(array_unique($this->_empleados,SORT_REGULAR)); //andaba sin el sort_regular x el tostring magico sino no anda ponerlo.
+    
 }
+
 
 public function __toString(){ 
 
@@ -72,6 +73,7 @@ $txt = 'Razon Social: '.$this->_razonSocial.' - ';
     
 return $txt;
 }
+
 
 }
 
