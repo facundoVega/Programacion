@@ -85,6 +85,17 @@ $txt = 'Razon Social: '.$this->_razonSocial.' - ';
 return $txt;
 }
 
+public function ToString(){
+
+    $txt = $this->_razonSocial.' - ';
+
+    foreach($this->_empleados as $empleado){
+        $txt.= $empleado->ToString();
+        $txt.= '-';
+    }
+    return $txt;
+}
+
 
 }
 

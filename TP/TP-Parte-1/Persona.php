@@ -30,9 +30,13 @@ public function getSexo(){
 
 public abstract function Hablar($idioma);
 
-public function __toString(){ // utilizar metodo magico o normal?
+public function __toString(){ 
  $txt = array(" Nombre: ".$this->_nombre," Apellido: ".$this->_apellido," Dni: ".$this->_dni," Sexo: ".$this->_sexo);
  return implode("-",$txt);
+}
+
+public function ToString(){
+    return $this->_nombre."-".$this->_apellido."-".$this->_dni."-".$this->_sexo;
 }
 
 }

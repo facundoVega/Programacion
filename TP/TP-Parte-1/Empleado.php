@@ -32,6 +32,9 @@ protected $_sueldo;
         return $txt1.'-'.$txt2;
         
     }
+    public function ToString(){
+        return parent::ToString()."-".$this->_legajo."-".$this->_sueldo;
+    }
 }
 
 ?>
