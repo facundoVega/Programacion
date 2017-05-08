@@ -1,0 +1,12 @@
+PDO MANUAL: https://manuais.iessanclemente.net/index.php/Acceso_a_bases_de_datos_con_PDO
+PDO CONSTANTES: http://php.net/manual/es/pdo.constants.php
+index.html,administacion.php,pdo_files (ejemplos)
+
+ABM TXT Y SQL: octaviovillegas/PHP_ABM_Persona/Clases  EJEMPLO  1 ABM
+
+EJEMPLO 2 ABM
+ABM PDO :mattibz/Programacion/clase_06/clasePDO/clasePDO/clase06/clases
+ABM TXT :mattibz/Programacion/clase_06/clasePDO/clasePDO/clase06/ABM (VER MODELO FUNCIONANDO)
+
+
+
