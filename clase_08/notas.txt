@@ -1,0 +1,4 @@
+ver session, cookies
+ejemplo ajax 
+abm ejemplo
+tp
