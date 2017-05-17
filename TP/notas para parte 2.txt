@@ -1,0 +1,2 @@
+utilizar file_exist() y para extension
+$ext = pathinfo( $filename,PATHINFO_EXTENSION );
